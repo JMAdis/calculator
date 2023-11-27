@@ -1,0 +1,50 @@
+@use "./variables" as *;
+
+.calculator{
+    margin: 10%;
+    border: solid $background-color 20px;
+    background-color: $background-color;
+    height: auto;
+    &__output{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 10px;
+        color: white;
+        text-align: right;
+        height: 20vh;
+        margin: 10px;
+
+        &--result{
+            background-color: white;
+            color: $accent-color-orange;
+        }
+
+        &--input{
+            background-color: black;
+            color: $accent-color-orange;
+        }
+
+    }
+    &__buttons{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        height: 50vh;
+        gap: 10px;
+
+        &--indiv{
+            border-radius: 100px;
+            color: $accent-color-blue;
+            font-weight: bold;
+            background-color: $background-color;
+            border: 0;
+            font-size: 17px;
+        }
+        &--hghlght{
+            background-color: $accent-color-blue;
+            color: $accent-color-orange;
+            font-size: 17px;
+        }
+
+    }
+}

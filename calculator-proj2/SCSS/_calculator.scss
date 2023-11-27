@@ -1,5 +1,10 @@
 @use "./variables" as *;
 
+h1{
+    text-align: center;
+    color: $accent-color-blue;
+}
+
 .calculator{
     margin: 10%;
     border: solid $background-color 20px;
@@ -12,16 +17,19 @@
         color: white;
         text-align: right;
         height: 20vh;
-        margin: 10px;
+        font-size: 19px;
+        margin-bottom: 10px;
 
         &--result{
             background-color: white;
             color: $accent-color-orange;
+            padding: 25px 10px 25px;
         }
 
         &--input{
-            background-color: black;
+            background-color: $display-color-grey;
             color: $accent-color-orange;
+            padding: 25px 10px 25px;
         }
 
     }
@@ -46,5 +54,12 @@
             font-size: 17px;
         }
 
+    }
+}
+
+
+@media screen and (min-width: $tablet-breakpoint) { 
+    h1{
+        font-size: 40px;
     }
 }

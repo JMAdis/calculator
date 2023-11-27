@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Handjet:wght@500&family=Smooch+Sans:wght@300&display=swap");
 h1 {
   text-align: center;
-  font-size: 40px;
+  color: rgb(83, 75, 75);
+  font-family: "Smooch Sans", sans-serif;
+  font-size: 3rem;
   font-weight: bold;
 }
 
@@ -9,65 +12,90 @@ h1 {
   border: solid rgb(252, 252, 247) 20px;
   background-color: rgb(252, 252, 247);
   height: auto;
-  border-radius: 30px;
-  box-shadow: 5px 5px rgb(132, 133, 125);
+  border-radius: 5%;
+  box-shadow: 5px 5px 5px rgb(132, 133, 125);
 }
 .calculator__output {
   display: grid;
   grid-template-rows: 1fr 1fr;
   text-align: right;
   height: auto;
-  margin: 10px;
-  padding: 10px;
-  font-size: 19px;
-  margin-bottom: 10px;
+  margin: 1.5rem;
+  padding: 0.5rem;
+  font-size: 1.25rem;
   background-image: linear-gradient(rgb(255, 201, 164), rgb(255, 180, 173));
-  border-radius: 10px;
+  border-radius: 3%;
+  border: solid 1px rgb(132, 133, 125);
+  font-family: "Handjet", sans-serif;
 }
 .calculator__output--result {
   color: rgb(83, 75, 75);
 }
 .calculator__output--input {
   color: rgb(83, 75, 75);
-  font-size: 15px;
+  font-size: 0.75rem;
 }
 .calculator__buttons {
-  margin: 30px 0px 25px 0px;
+  margin: 2rem 1em 1.5em 1em;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr);
   height: 30vh;
-  gap: 8px;
+  gap: 0.5rem;
 }
 .calculator__buttons--indiv {
-  border-radius: 5px;
+  border-radius: 15%;
   font-weight: bold;
   background-color: rgb(252, 252, 247);
   border: 2px;
-  font-size: 20px;
+  font-size: 1.5rem;
+  font-family: "Smooch Sans", sans-serif;
   color: rgb(83, 75, 75);
   border: solid 1px rgb(132, 133, 125);
   box-shadow: 1px 1px rgb(132, 133, 125);
 }
 .calculator__buttons--hghlght {
   background-color: rgb(255, 201, 164);
-  font-size: 15px;
+  font-size: 1.5rem;
 }
 .calculator__buttons--hghlght2 {
   background-color: rgb(255, 180, 173);
-  font-size: 15px;
+  font-size: 1.5rem;
 }
 
 @media screen and (min-width: 768px) {
   h1 {
-    font-size: 70px;
+    font-size: 5rem;
   }
   .calculator__output {
-    font-size: 40px;
-    padding: 0;
+    font-size: 2rem;
   }
   .calculator__output--input {
-    font-size: 30px;
+    font-size: 1.4rem;
+  }
+  .calculator__buttons {
+    gap: 1rem;
+  }
+  .calculator__buttons--indiv {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 7rem;
+    color: white;
+  }
+  .calculator__output {
+    font-size: 3rem;
+  }
+  .calculator__output--input {
+    font-size: 2rem;
+  }
+  .calculator__buttons {
+    gap: 1.25rem;
+  }
+  .calculator__buttons--indiv {
+    font-size: 3rem;
   }
 }
 body {

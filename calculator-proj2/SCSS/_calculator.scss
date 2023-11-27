@@ -2,7 +2,9 @@
 
 h1{
     text-align: center;
-    color: $accent-color-blue;
+    //color: $accent-color-blue;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .calculator{
@@ -10,56 +12,75 @@ h1{
     border: solid $background-color 20px;
     background-color: $background-color;
     height: auto;
+    border-radius: 30px;
+    box-shadow: 5px 5px $display-color-grey;
+
     &__output{
         display: grid;
         grid-template-rows: 1fr 1fr;
-        gap: 10px;
-        color: white;
         text-align: right;
-        height: 20vh;
+        height: auto;
+        margin: 10px;
+        padding: 10px;
         font-size: 19px;
         margin-bottom: 10px;
+        background-image: linear-gradient($accent-color-peach, $accent-color-pink);
+        border-radius: 10px;
 
         &--result{
-            background-color: white;
-            color: $accent-color-orange;
-            padding: 25px 10px 25px;
+            color: $display-color-black;
         }
-
         &--input{
-            background-color: $display-color-grey;
-            color: $accent-color-orange;
-            padding: 25px 10px 25px;
+            color: $display-color-black;
+            font-size: 15px;
         }
 
     }
     &__buttons{
+        margin: 30px 0px 25px 0px;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        height: 50vh;
-        gap: 10px;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        height: 30vh;
+        gap: 8px;
 
         &--indiv{
-            border-radius: 100px;
-            color: $accent-color-blue;
+            border-radius: 5px;
             font-weight: bold;
             background-color: $background-color;
-            border: 0;
-            font-size: 17px;
+            border: 2px;
+            font-size: 20px;
+            color: $display-color-black;
+            border: solid 1px $display-color-grey;
+            box-shadow: 1px 1px $display-color-grey;
         }
         &--hghlght{
-            background-color: $accent-color-blue;
-            color: $accent-color-orange;
-            font-size: 17px;
+            background-color: $accent-color-peach;
+            font-size: 15px;
         }
-
+        &--hghlght2{
+            background-color: $accent-color-pink;
+            font-size: 15px;
+        }
     }
 }
 
 
 @media screen and (min-width: $tablet-breakpoint) { 
     h1{
-        font-size: 40px;
+        font-size: 70px;
+    }
+
+    .calculator{
+        &__output{
+            font-size: 40px;
+            padding: 0;
+
+            &--input{
+                font-size: 30px;
+            }
+        }
+        &__buttons{
+        }
     }
 }

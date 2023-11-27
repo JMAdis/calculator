@@ -68,6 +68,17 @@ h1{
     }
 }
 
+.calculator__buttons--indiv:active, .calculator__buttons--indiv:hover{
+    background-color: $accent-color-pink;
+}
+
+.calculator__buttons--hghlght2:active, .calculator__buttons--hghlght2:hover{
+    background-color: $accent-color-darkTeal;
+}
+
+.calculator__buttons--hghlght:active, .calculator__buttons--hghlght:hover{
+    background-color: $accent-color-teal;
+}
 
 @media screen and (min-width: $tablet-breakpoint) { 
     h1{

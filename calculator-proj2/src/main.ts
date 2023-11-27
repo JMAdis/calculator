@@ -18,7 +18,7 @@ if(calcButtons.length ===0){
 }
 
 // HANDLER FUNCTIONS 
-const handleButtonClick = (event: Event) =>{
+const handleButtonClick = () =>{
     
 }
 

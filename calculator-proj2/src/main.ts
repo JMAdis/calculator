@@ -1,3 +1,5 @@
-import './style.css'
+import '../SCSS/main.css';
 
+console.log("Hello World!")
 
+ 

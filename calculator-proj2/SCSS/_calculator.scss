@@ -20,7 +20,7 @@ h1{
         display: grid;
         grid-template-rows: 1fr 1fr;
         text-align: right;
-        height: auto;
+        height: 4rem;
         margin: 1.5rem;
         padding: 0.5rem;
         font-size: 1.25rem;
@@ -87,6 +87,7 @@ h1{
 
     .calculator{
         &__output{
+            height: 5rem;
             font-size: 2rem;
 
             &--input{
@@ -112,6 +113,7 @@ h1{
 
     .calculator{
         &__output{
+            height: 6rem;
             font-size: 3rem;
 
             &--input{

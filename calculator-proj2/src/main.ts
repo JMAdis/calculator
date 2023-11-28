@@ -4,7 +4,7 @@ console.log("Hello World!")
 
 // HTML SELECTOR - for screen & all buttons 
 const display = document.querySelector<HTMLDivElement>(".calculator__screen") 
-const calcButtons = document.querySelectorAll<HTMLButtonElement>(".calculator__buttons--indiv")
+const calcNumButtons = document.querySelectorAll<HTMLButtonElement>(".calculator__buttons--nmbr")
 const clear = document.querySelector<HTMLButtonElement>("#AC")
 const del = document.querySelector<HTMLButtonElement>("#del")
 const percentage = document.querySelector<HTMLButtonElement>("#percentage")
@@ -22,12 +22,10 @@ if(!display || !clear || !del || !percentage || !divide || !multiply || !additio
     throw new Error("Issue with the selector of our container")
 }
 
-if(calcButtons.length === 0){
+if(calcNumButtons.length === 0){
     throw new Error("Issue with the QuerySelectorAll");
 
 }
-
-console.log(displayInput);
 
 // DEFINING VARIABLES FOR THE DISPLAY
 let currentInput = "";

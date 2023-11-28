@@ -9,16 +9,11 @@ const calcMathButtons = document.querySelectorAll<HTMLButtonElement>(".calculato
 const clear = document.querySelector<HTMLButtonElement>("#AC")
 const del = document.querySelector<HTMLButtonElement>("#del")
 const percentage = document.querySelector<HTMLButtonElement>("#percentage")
-const divide = document.querySelector<HTMLButtonElement>("#divide")
-const multiply = document.querySelector<HTMLButtonElement>("#multiply")
-const addition = document.querySelector<HTMLButtonElement>("#addition")
-const subtraction = document.querySelector<HTMLButtonElement>("#subtraction")
-const decimal = document.querySelector<HTMLButtonElement>("#decimal")
 const equals = document.querySelector<HTMLButtonElement>("#equals")
 
 
 //ELEMENT VALIDATION
-if(!display || !clear || !del || !percentage || !divide || !multiply || !addition || !subtraction || !decimal || !equals){
+if(!display || !clear || !del || !divide || !multiply || !addition || !subtraction || !decimal || !equals){
     throw new Error("Issue with the selector of our container")
 };
 

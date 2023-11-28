@@ -21,57 +21,98 @@ const hi = document.querySelector<HTMLButtonElement>("#hi")
 //ELEMENT VALIDATION
 if(!display || !clear || !del || !percentage || !divide || !multiply || !addition || !subtraction || !decimal || !equals || !hi){
     throw new Error("Issue with the selector of our container")
-}
+};
 
 if(calcNumButtons.length === 0 || calcMathButtons.length === 0){
     throw new Error("Issue with the QuerySelectorAll");
-}
+};
 
-// GETTING THE NUMBER DISPLAY TO WORK
+let currentEquation: string = "";
+
+// GETTING THE NUMBER & OPERATOR DISPLAY TO WORK
 calcNumButtons.forEach(number =>{
     number.addEventListener("click", () => {
-        return display.innerHTML += Number(number.innerHTML)
+        currentEquation += number.innerHTML;
+        display.innerHTML = currentEquation;
     });
 });
 
 calcMathButtons.forEach(button =>{
     button.addEventListener("click", () =>{
-        return display.innerHTML += String(button.innerHTML)
+        currentEquation += button.innerHTML;
+        display.innerHTML = currentEquation;
     });
 });
 
+// GETTING THE AC AND DEL BUTTONS TO WORK
+clear.addEventListener("click", () =>{
+    currentEquation = "";
+    display.innerHTML = "";
+});
+
+del.addEventListener("click",() =>{
+    currentEquation = currentEquation.slice(0, -1);
+    display.innerHTML = currentEquation;
+})
 
 // FUNCTION & SWITCH STATEMENT THAT DOES THE MATHS
-function performOperation(num1: number, operation: string, num2: number): {result: number | null, error: string | null} {
+function performOperation(equation: string): {result: number | null, error: string | null} {
     let result: number | null;
     let error: string | null;
 
-    switch (operation){
-        case '+':
-            result = num1 + num2;
-            break;
-        case '-':
-            result = num1 - num2;
-            break;
-        case '*':
-            result = num1 * num2;
-            break;
-        case '/':
-            if (num2 !== 0){
-                result = num1 / num2;
-            } else {
-                error = "Cannot divide by 0";
+    const operators = ["+", "-", "*", "/"];
+    const equationParts = equation.split(operators);
+
+    if (equationParts.length !==2){
+        error = "Invalid equation"
+    } else {
+        const num1 = parseFloat(equationParts[0]);
+        const num2 = parseFloat(equationParts[1]);
+        const operator = equation.match(operators);
+
+        if (!isNaN(num1) && !isNaN(num2) && operator){
+            switch (operator[0]){
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 !== 0){
+                        result = num1 / num2;
+                    } else {
+                        error = "Cannot divide by 0";
+                    }
+                    break;
+                default: 
+                    error = "Invalid symbol. Please use +, -, /, or *";
             }
-            break;
-        default: 
-            error = "Invalid symbol. Please use +, -, /, or *";
+        } else {
+            error = "Invalid expression.";
+        }
     }
     return {result, error};
-}
+};
+
+answer.addEventListener("click", () =>{
+    const {result, error} = performOperation(currentEquation);
+    if (error){
+        console.error(error);
+    } else{
+        console.log(result);
+
+        display.innerHTML = result.toString() || "";
+        currentEquation = result.toString() || "";
+    }
+});
 
 
-console.log(performOperation(10, "+", 2))
-const result = performOperation
+//console.log(performOperation(10, "+", 2))
+//const result = performOperation
 
 
 
@@ -85,6 +126,16 @@ const result = performOperation
 
 
 /*
+
+
+// DEFINING VARIABLES
+let num1 = "";
+let operation = "";
+let num2 = "";
+let equation =
+
+
+
 // DEFINING VARIABLES FOR THE CALCULATOR
 let firstInput: number;
 let secondInput: number

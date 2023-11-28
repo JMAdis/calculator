@@ -13,7 +13,7 @@ const equals = document.querySelector<HTMLButtonElement>("#equals")
 
 
 //ELEMENT VALIDATION
-if(!display || !clear || !del || !divide || !multiply || !addition || !subtraction || !decimal || !equals){
+if(!display || !clear || !del || !percentage || !equals){
     throw new Error("Issue with the selector of our container")
 };
 
@@ -49,7 +49,11 @@ del.addEventListener("click",() =>{
     display.innerHTML = currentEquation;
 })
 
-console.log("hi")
+// GETTING THE % BUTTON TO WORK
+percentage.addEventListener("click", () =>{
+    currentEquation += "*0.01";
+    display.innerHTML = currentEquation
+})
 
 // GETTING THE EQUALS BUTTON TO PERFORM THE CALCULATION
 equals.addEventListener("click", () =>{
@@ -95,6 +99,9 @@ function performOperation(equation: string): {result: number | null, error: stri
                     break;
                 case '*':
                     result = num1 * num2;
+                    break;
+                case '%':
+                    result = num1 * (num2/100);
                     break;
                 case '/':
                     if (num2 !== 0){

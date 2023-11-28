@@ -2,17 +2,27 @@ import '../SCSS/main.css';
 
 console.log("Hello World!")
 
-// HTML SELECTOR
-const displayInput = document.querySelector<HTMLElement>(".calculator__output--input")
-const displayResult = document.querySelector<HTMLElement>(".calculator__output--result") 
+// HTML SELECTOR - for screen & all buttons 
+const display = document.querySelector<HTMLDivElement>(".calculator__screen") 
 const calcButtons = document.querySelectorAll<HTMLButtonElement>(".calculator__buttons--indiv")
+const clear = document.querySelector<HTMLButtonElement>("#AC")
+const del = document.querySelector<HTMLButtonElement>("#del")
+const percentage = document.querySelector<HTMLButtonElement>("#percentage")
+const divide = document.querySelector<HTMLButtonElement>("#divide")
+const multiply = document.querySelector<HTMLButtonElement>("#multiply")
+const addition = document.querySelector<HTMLButtonElement>("#addition")
+const subtraction = document.querySelector<HTMLButtonElement>("#subtraction")
+const decimal = document.querySelector<HTMLButtonElement>("#decimal")
+const equals = document.querySelector<HTMLButtonElement>("#equals")
+const hi = document.querySelector<HTMLButtonElement>("#hi")
+
 
 //ELEMENT VALIDATION
-if(!displayInput || !displayResult){
+if(!display || !clear || !del || !percentage || !divide || !multiply || !addition || !subtraction || !decimal || !equals || !hi){
     throw new Error("Issue with the selector of our container")
 }
 
-if(calcButtons.length ===0){
+if(calcButtons.length === 0){
     throw new Error("Issue with the QuerySelectorAll");
 
 }

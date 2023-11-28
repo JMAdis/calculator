@@ -58,11 +58,16 @@ console.log("hi")
 
 // GETTING THE EQUALS BUTTON TO PERFORM THE CALCULATION
 equals.addEventListener("click", () =>{
+    console.log("Current equation:", currentEquation)
     const {result, error} = performOperation(currentEquation);
+    console.log("result:", result, typeof result)
+    console.log("error:", error)
     if (result !== undefined && result !== null) {
+        console.log("Updating display with result", result)
         currentEquation = result.toString();
-        display.innerHTML = error || "";
+        display.innerHTML = currentEquation
     } else {
+        console.log("Updating display with error", error)
         currentEquation = "";
         display.innerHTML = error || "Error";
     }
@@ -107,7 +112,7 @@ function performOperation(equation: string): {result: number | null, error: stri
                     error = "Invalid symbol. Please use +, -, /, or *";
             }
         } else {
-            error = "Invalid expression.";
+            error = "Invalid equation";
         }
     }
     return {result, error};

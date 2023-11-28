@@ -3,7 +3,7 @@
 h1{
     text-align: center;
     color: $display-color-black;
-    font-family: $calc-font;
+    font-family: $awesome-font;
     font-size: 3rem;
     font-weight: bold;
 }
@@ -87,6 +87,7 @@ h1{
 @media screen and (min-width: $tablet-breakpoint) { 
     h1{
         font-size: 5rem;
+        color: $white-color;
     }
 
     .calculator{
@@ -108,7 +109,7 @@ h1{
 @media screen and (min-width: $desktop-breakpoint) {
     h1{
         font-size: 7rem;
-        color: white;
+        color: $white-color;
     }
 
     .calculator{

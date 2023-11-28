@@ -1,7 +1,5 @@
 import '../SCSS/main.css';
 
-console.log("Hello World!")
-
 // HTML SELECTOR - for screen & all buttons 
 const display = document.querySelector<HTMLDivElement>(".calculator__screen") 
 const calcNumButtons = document.querySelectorAll<HTMLButtonElement>(".calculator__buttons--nmbr")
@@ -21,9 +19,10 @@ if(calcNumButtons.length === 0 || calcMathButtons.length === 0){
     throw new Error("Issue with the QuerySelectorAll");
 };
 
+// INITIALIZING currentEquation
 let currentEquation: string = "";
 
-// GETTING THE NUMBER & OPERATOR DISPLAY TO WORK
+// EVENT LISTENERS FOR THE NUMBER & OPERATOR BUTTONS
 calcNumButtons.forEach(number =>{
     number.addEventListener("click", () => {
         currentEquation += number.innerHTML;
@@ -38,7 +37,7 @@ calcMathButtons.forEach(button =>{
     });
 });
 
-// GETTING THE AC AND DEL BUTTONS TO WORK
+// EVENT LISTENERS FOR AC & DEL BUTTONS
 clear.addEventListener("click", () =>{
     currentEquation = "";
     display.innerHTML = "";
@@ -49,30 +48,25 @@ del.addEventListener("click",() =>{
     display.innerHTML = currentEquation;
 })
 
-// GETTING THE % BUTTON TO WORK
+// EVENT LISTENER FOR THE % BUTTON 
 percentage.addEventListener("click", () =>{
     currentEquation += "*0.01";
     display.innerHTML = currentEquation
 })
 
-// GETTING THE EQUALS BUTTON TO PERFORM THE CALCULATION
+// EVENT LISTENER FOR THE = BUTTON 
 equals.addEventListener("click", () =>{
-    console.log("Current equation:", currentEquation)
     const {result, error} = performOperation(currentEquation);
-    console.log("result:", result, typeof result)
-    console.log("error:", error)
     if (result !== undefined && result !== null) {
-        console.log("Updating display with result", result)
         currentEquation = result.toString();
         display.innerHTML = currentEquation
     } else {
-        console.log("Updating display with error", error)
         currentEquation = "";
         display.innerHTML = error || "Error";
     }
 });
 
-// FUNCTION & SWITCH STATEMENT THAT DOES THE MATHS
+// performOperation FUNCTION & DEFINING THE OPERATORS & EQUATION
 function performOperation(equation: string): {result: number | null, error: string | null} {
     let result: number | null = null;
     let error: string | null = null;
@@ -89,6 +83,7 @@ function performOperation(equation: string): {result: number | null, error: stri
         const operatorMatch = equation.match(operatorRegExp);
         const operator = operatorMatch ? operatorMatch[0] : null
         
+        // SWITCH STATEMENT BASED ON THE OPERATOR
         if (!isNaN(num1) && !isNaN(num2) && operator){
             switch (operator){
                 case '+':
@@ -119,66 +114,3 @@ function performOperation(equation: string): {result: number | null, error: stri
     }
     return {result, error};
 };
-
-
-
-//console.log(performOperation(10, "+", 2))
-//const result = performOperation
-
-
-
-
-//return display.innerHTML(result)
-
-
-
-//const result = performOperation(num1, operator, num2);
-//display.innerHTML += `${result}`
-
-
-/*
-
-
-// DEFINING VARIABLES
-let num1 = "";
-let operation = "";
-let num2 = "";
-let equation =
-
-
-
-// DEFINING VARIABLES FOR THE CALCULATOR
-let firstInput: number;
-let secondInput: number
-
-// DISPLAYING INPUTS
-function appendToDisplay(value: string){
-    currentInput += value;
-    displayInput.value = currentInput;
-};
-
-// CLEARING THE DISPLAY
-function clearDisplay(){
-    currentInput = "";
-    currentOperator = "";
-    displayInput.value = "";
-}
-
-// HANDLER FUNCTIONS 
-const handleButtonClick = () =>{
-    
-}
-
-// GETTING THE ANSWER 
-answer.addEventListener("click", () => {
-    const {result, error} = performOperation(parseFloat(display.innerHTML), operator, parseFloat(display.innerHTML));
-
-    if (error){
-        display.innerHTML = "Error";
-    } else {
-        display.innerHTML = result;
-    }
-
-})
-
-*/

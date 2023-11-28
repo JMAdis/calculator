@@ -33,7 +33,32 @@ calcNumButtons.forEach(number =>{
     })
 })
 
+// DOING THE MATHS
+function performOperation(num1: number, operation: string, num2: number): {result: number | null, error: string | null} {
+    let result: number | null;
+    let error: string | null;
 
+    switch (operation){
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            result = num1 / num2;
+            break;
+        default: 
+            throw new Error ("Invalid symbol. Please use +, -, /, or *");
+    }
+    return result;
+}
+
+const result = performOperation(userNum1, userOperator, userNum2);
+display.innerHTML += `${result}`
 
 /*
 // DEFINING VARIABLES FOR THE CALCULATOR

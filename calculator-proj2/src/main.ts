@@ -49,10 +49,14 @@ function performOperation(num1: number, operation: string, num2: number): {resul
             result = num1 * num2;
             break;
         case '/':
-            result = num1 / num2;
+            if (num2 !===0){
+                result = num1 / num2;
+            } else{
+                error = "Cannot divide by 0";
+            }
             break;
         default: 
-            throw new Error ("Invalid symbol. Please use +, -, /, or *");
+            error = "Invalid symbol. Please use +, -, /, or *";
     }
     return result;
 }

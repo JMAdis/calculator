@@ -15,11 +15,10 @@ const addition = document.querySelector<HTMLButtonElement>("#addition")
 const subtraction = document.querySelector<HTMLButtonElement>("#subtraction")
 const decimal = document.querySelector<HTMLButtonElement>("#decimal")
 const equals = document.querySelector<HTMLButtonElement>("#equals")
-const hi = document.querySelector<HTMLButtonElement>("#hi")
 
 
 //ELEMENT VALIDATION
-if(!display || !clear || !del || !percentage || !divide || !multiply || !addition || !subtraction || !decimal || !equals || !hi){
+if(!display || !clear || !del || !percentage || !divide || !multiply || !addition || !subtraction || !decimal || !equals){
     throw new Error("Issue with the selector of our container")
 };
 
@@ -55,32 +54,39 @@ del.addEventListener("click",() =>{
     display.innerHTML = currentEquation;
 })
 
+console.log("hi")
+
 // GETTING THE EQUALS BUTTON TO PERFORM THE CALCULATION
 equals.addEventListener("click", () =>{
     const {result, error} = performOperation(currentEquation);
-    if (result !== null) {
+    if (result !== undefined && result !== null) {
         currentEquation = result.toString();
         display.innerHTML = error || "";
+    } else {
+        currentEquation = "";
+        display.innerHTML = error || "Error";
     }
 });
 
 // FUNCTION & SWITCH STATEMENT THAT DOES THE MATHS
 function performOperation(equation: string): {result: number | null, error: string | null} {
-    let result: number | null;
-    let error: string | null;
+    let result: number | null = null;
+    let error: string | null = null;
 
     const operators = ["+", "-", "*", "/"];
-    const equationParts = equation.split(operators);
+    const operatorRegExp = new RegExp(`[${operators.join("\\")}]`)
+    const equationParts = equation.split(operatorRegExp);
 
-    if (equationParts.length !==2){
+    if (equationParts.length !== 2){
         error = "Invalid equation"
     } else {
         const num1 = parseFloat(equationParts[0]);
         const num2 = parseFloat(equationParts[1]);
-        const operator = equation.match(operators);
-
+        const operatorMatch = equation.match(operatorRegExp);
+        const operator = operatorMatch ? operatorMatch[0] : null
+        
         if (!isNaN(num1) && !isNaN(num2) && operator){
-            switch (operator[0]){
+            switch (operator){
                 case '+':
                     result = num1 + num2;
                     break;
@@ -106,6 +112,7 @@ function performOperation(equation: string): {result: number | null, error: stri
     }
     return {result, error};
 };
+
 
 
 //console.log(performOperation(10, "+", 2))

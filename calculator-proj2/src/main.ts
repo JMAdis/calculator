@@ -24,12 +24,21 @@ if(!display || !clear || !del || !percentage || !divide || !multiply || !additio
 
 if(calcNumButtons.length === 0){
     throw new Error("Issue with the QuerySelectorAll");
-
 }
 
-// DEFINING VARIABLES FOR THE DISPLAY
-let currentInput = "";
-let currentOperator = "";
+// GETTING THE NUMBER DISPLAY TO WORK
+calcNumButtons.forEach(number =>{
+    number.addEventListener("click",() => {
+        return display.innerHTML += Number(number.innerHTML)
+    })
+})
+
+
+
+/*
+// DEFINING VARIABLES FOR THE CALCULATOR
+let firstInput: number;
+let secondInput: number
 
 // DISPLAYING INPUTS
 function appendToDisplay(value: string){
@@ -50,3 +59,4 @@ const handleButtonClick = () =>{
 }
 
 //
+*/

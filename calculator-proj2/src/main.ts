@@ -5,7 +5,7 @@ console.log("Hello World!")
 // HTML SELECTOR - for screen & all buttons 
 const display = document.querySelector<HTMLDivElement>(".calculator__screen") 
 const calcNumButtons = document.querySelectorAll<HTMLButtonElement>(".calculator__buttons--nmbr")
-const calcMathButtons = document.querySelectorAll<HTMLButtonElement>(".calculator")
+const calcMathButtons = document.querySelectorAll<HTMLButtonElement>(".calculator__buttons--math")
 const clear = document.querySelector<HTMLButtonElement>("#AC")
 const del = document.querySelector<HTMLButtonElement>("#del")
 const percentage = document.querySelector<HTMLButtonElement>("#percentage")
@@ -39,6 +39,7 @@ calcMathButtons.forEach(button =>{
         return display.innerHTML += String(button.innerHTML)
     });
 });
+
 
 // FUNCTION & SWITCH STATEMENT THAT DOES THE MATHS
 function performOperation(num1: number, operation: string, num2: number): {result: number | null, error: string | null} {
@@ -81,8 +82,6 @@ const result = performOperation
 
 //const result = performOperation(num1, operator, num2);
 //display.innerHTML += `${result}`
-
-
 
 
 /*

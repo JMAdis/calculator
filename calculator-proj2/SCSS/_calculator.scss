@@ -49,14 +49,21 @@ h1{
             color: $display-color-black;
             border: solid 1px $display-color-grey;
             box-shadow: 1px 1px $display-color-grey;
+            text-decoration: none;
+            text-align: center;
         }
         &--hghlght{
             background-color: $accent-color-peach;
             font-size: 1.5rem;
         }
-        &--hghlght2{
+        &--hghlght2, &--hghlght3{
             background-color: $accent-color-pink;
             font-size: 1.5rem;
+        }
+        &--hghlght3{
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }
@@ -65,12 +72,16 @@ h1{
     background-color: $accent-color-pink;
 }
 
+.calculator__buttons--hghlght:active, .calculator__buttons--hghlght:hover{
+    background-color: $accent-color-teal;
+}
+
 .calculator__buttons--hghlght2:active, .calculator__buttons--hghlght2:hover{
     background-color: $accent-color-darkTeal;
 }
 
-.calculator__buttons--hghlght:active, .calculator__buttons--hghlght:hover{
-    background-color: $accent-color-teal;
+.calculator__buttons--hghlght3:active, .calculator__buttons--hghlght3:hover{
+    background-color: $easter-egg-color;
 }
 
 @media screen and (min-width: $tablet-breakpoint) { 

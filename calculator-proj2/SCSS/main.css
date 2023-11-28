@@ -47,26 +47,37 @@ h1 {
   color: rgb(83, 75, 75);
   border: solid 1px rgb(132, 133, 125);
   box-shadow: 1px 1px rgb(132, 133, 125);
+  text-decoration: none;
+  text-align: center;
 }
 .calculator__buttons--hghlght {
   background-color: rgb(255, 201, 164);
   font-size: 1.5rem;
 }
-.calculator__buttons--hghlght2 {
+.calculator__buttons--hghlght2, .calculator__buttons--hghlght3 {
   background-color: rgb(255, 180, 173);
   font-size: 1.5rem;
+}
+.calculator__buttons--hghlght3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .calculator__buttons--indiv:active, .calculator__buttons--indiv:hover {
   background-color: rgb(255, 180, 173);
 }
 
+.calculator__buttons--hghlght:active, .calculator__buttons--hghlght:hover {
+  background-color: rgb(79, 184, 180);
+}
+
 .calculator__buttons--hghlght2:active, .calculator__buttons--hghlght2:hover {
   background-color: rgb(37, 159, 164);
 }
 
-.calculator__buttons--hghlght:active, .calculator__buttons--hghlght:hover {
-  background-color: rgb(79, 184, 180);
+.calculator__buttons--hghlght3:active, .calculator__buttons--hghlght3:hover {
+  background-color: rgb(240, 78, 138);
 }
 
 @media screen and (min-width: 768px) {

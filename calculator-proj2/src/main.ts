@@ -55,6 +55,15 @@ del.addEventListener("click",() =>{
     display.innerHTML = currentEquation;
 })
 
+// GETTING THE EQUALS BUTTON TO PERFORM THE CALCULATION
+equals.addEventListener("click", () =>{
+    const {result, error} = performOperation(currentEquation);
+    if (result !== null) {
+        currentEquation = result.toString();
+        display.innerHTML = error || "";
+    }
+});
+
 // FUNCTION & SWITCH STATEMENT THAT DOES THE MATHS
 function performOperation(equation: string): {result: number | null, error: string | null} {
     let result: number | null;
@@ -97,18 +106,6 @@ function performOperation(equation: string): {result: number | null, error: stri
     }
     return {result, error};
 };
-
-answer.addEventListener("click", () =>{
-    const {result, error} = performOperation(currentEquation);
-    if (error){
-        console.error(error);
-    } else{
-        console.log(result);
-
-        display.innerHTML = result.toString() || "";
-        currentEquation = result.toString() || "";
-    }
-});
 
 
 //console.log(performOperation(10, "+", 2))

@@ -5,6 +5,7 @@ console.log("Hello World!")
 // HTML SELECTOR - for screen & all buttons 
 const display = document.querySelector<HTMLDivElement>(".calculator__screen") 
 const calcNumButtons = document.querySelectorAll<HTMLButtonElement>(".calculator__buttons--nmbr")
+const calcMathButtons = document.querySelectorAll<HTMLButtonElement>(".calculator")
 const clear = document.querySelector<HTMLButtonElement>("#AC")
 const del = document.querySelector<HTMLButtonElement>("#del")
 const percentage = document.querySelector<HTMLButtonElement>("#percentage")
@@ -22,18 +23,24 @@ if(!display || !clear || !del || !percentage || !divide || !multiply || !additio
     throw new Error("Issue with the selector of our container")
 }
 
-if(calcNumButtons.length === 0){
+if(calcNumButtons.length === 0 || calcMathButtons.length === 0){
     throw new Error("Issue with the QuerySelectorAll");
 }
 
 // GETTING THE NUMBER DISPLAY TO WORK
 calcNumButtons.forEach(number =>{
-    number.addEventListener("click",() => {
+    number.addEventListener("click", () => {
         return display.innerHTML += Number(number.innerHTML)
-    })
-})
+    });
+});
 
-// DOING THE MATHS
+calcMathButtons.forEach(button =>{
+    button.addEventListener("click", () =>{
+        return display.innerHTML += String(button.innerHTML)
+    });
+});
+
+// FUNCTION & SWITCH STATEMENT THAT DOES THE MATHS
 function performOperation(num1: number, operation: string, num2: number): {result: number | null, error: string | null} {
     let result: number | null;
     let error: string | null;
@@ -49,20 +56,34 @@ function performOperation(num1: number, operation: string, num2: number): {resul
             result = num1 * num2;
             break;
         case '/':
-            if (num2 !===0){
+            if (num2 !== 0){
                 result = num1 / num2;
-            } else{
+            } else {
                 error = "Cannot divide by 0";
             }
             break;
         default: 
             error = "Invalid symbol. Please use +, -, /, or *";
     }
-    return result;
+    return {result, error};
 }
 
-const result = performOperation(userNum1, userOperator, userNum2);
-display.innerHTML += `${result}`
+
+console.log(performOperation(10, "+", 2))
+const result = performOperation
+
+
+
+
+//return display.innerHTML(result)
+
+
+
+//const result = performOperation(num1, operator, num2);
+//display.innerHTML += `${result}`
+
+
+
 
 /*
 // DEFINING VARIABLES FOR THE CALCULATOR
@@ -87,5 +108,16 @@ const handleButtonClick = () =>{
     
 }
 
-//
+// GETTING THE ANSWER 
+answer.addEventListener("click", () => {
+    const {result, error} = performOperation(parseFloat(display.innerHTML), operator, parseFloat(display.innerHTML));
+
+    if (error){
+        display.innerHTML = "Error";
+    } else {
+        display.innerHTML = result;
+    }
+
+})
+
 */

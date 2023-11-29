@@ -9,10 +9,11 @@ const clear = document.querySelector<HTMLButtonElement>("#AC")
 const del = document.querySelector<HTMLButtonElement>("#del")
 const percentage = document.querySelector<HTMLButtonElement>("#percentage")
 const equals = document.querySelector<HTMLButtonElement>("#equals")
-
+const themeButton = document.querySelector<HTMLButtonElement>("#theme-button")
+const body = document.body;
 
 //ELEMENT VALIDATION
-if(!display || !clear || !del || !percentage || !equals){
+if(!display || !clear || !del || !percentage || !equals || !themeButton){
     throw new Error("Issue with the selector of our container")
 };
 
@@ -58,12 +59,10 @@ percentage.addEventListener("click", () =>{
 // ADDING CONFETTI TO THE CALCULATOR
 // CREATING OBJECT
 const confettiOptions : Options ={
-    particleCount: Math.random() * 360,
+    particleCount: 200,
     spread: 359,
-    angle: 90,
     colors: ["#de3163", "#ff69b4", "#ffb6c1"]
 }
-
 
 // EVENT LISTENER FOR THE = BUTTON 
 equals.addEventListener("click", () =>{
@@ -77,6 +76,18 @@ equals.addEventListener("click", () =>{
         display.innerHTML = error || "Error";
     }
 });
+
+// EVENT LISTENER FOR THE THEME BUTTON/TOGGLE
+let wavyMode = true
+
+function changeTheme() {
+    if (wavyMode){
+        body.style.backgroundImage = 'url(../assets/daysi-pattern-design_25030-55737.avif)';
+    } else {
+        body.style.backgroundImage = 'url(../assets/4945415.jpg)'
+    }
+    
+}
 
 // performOperation FUNCTION & DEFINING THE OPERATORS & EQUATION
 function performOperation(equation: string): {result: number | null, error: string | null} {

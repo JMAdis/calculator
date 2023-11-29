@@ -136,9 +136,11 @@ function changeTheme() {
     if (wavyMode){
         body.style.backgroundImage = 'url(../assets/daysi-pattern-design_25030-55737.avif)';
         heading.style.color = 'rgb(240,78,138)';
+        themeButton.style.backgroundColor = 'rgb(240,78,138)';
     } else {
         body.style.backgroundImage = 'url(../assets/4945415.jpg)'
         heading.style.color = 'white';
+        themeButton.style.backgroundColor = 'rgb(37,159,164)';
     }
     wavyMode = !wavyMode;
 }

@@ -1,4 +1,4 @@
-import '../SCSS/main.css';
+import '../SCSS/main.scss';
 import confetti, {Options} from "canvas-confetti"
 
 // HTML SELECTOR - for screen & all buttons 
@@ -11,10 +11,10 @@ const percentage = document.querySelector<HTMLButtonElement>("#percentage")
 const equals = document.querySelector<HTMLButtonElement>("#equals")
 const themeButton = document.querySelector<HTMLButtonElement>("#theme-button")
 const body = document.body;
-const 
+const heading = document.querySelector<HTMLHeadingElement>("#heading")
 
 //ELEMENT VALIDATION
-if(!display || !clear || !del || !percentage || !equals || !themeButton){
+if(!display || !clear || !del || !percentage || !equals || !themeButton || !heading){
     throw new Error("Issue with the selector of our container")
 };
 
@@ -127,18 +127,27 @@ function performOperation(equation: string): {result: number | null, error: stri
     return {result, error};
 };
 
-// EVENT LISTENER FOR THE THEME BUTTON/TOGGLE
+// ADDING THEME FUNCTIONALITY
+// DECLARATION OF wavyMode variable
 let wavyMode = true;
 
-function changeTheme() {
+// CHANGETHEME FUNCTION
+const changeTheme = () => {
     if (wavyMode){
         body.style.backgroundImage = 'url(../assets/daysi-pattern-design_25030-55737.avif)';
+        heading.style.color = 'rgb(240,78,138)';
+        heading.innerHTML = "My Barbie® Calculator"
+        themeButton.style.backgroundColor = 'rgb(240,78,138)';
     } else {
         body.style.backgroundImage = 'url(../assets/4945415.jpg)'
+        heading.style.color = 'white';
+        heading.innerHTML = "My Calculator Project"
+        themeButton.style.backgroundColor = 'rgb(37,159,164)';
     }
     wavyMode = !wavyMode;
 }
 
+//EVENT LISTENER FOR THE THEME BUTTON/TOGGLE
 themeButton.addEventListener("click", () =>{
     changeTheme()
 })

@@ -132,7 +132,7 @@ function performOperation(equation: string): {result: number | null, error: stri
 let wavyMode = true;
 
 // CHANGETHEME FUNCTION
-function changeTheme() {
+const changeTheme = () => {
     if (wavyMode){
         body.style.backgroundImage = 'url(../assets/daysi-pattern-design_25030-55737.avif)';
         heading.style.color = 'rgb(240,78,138)';

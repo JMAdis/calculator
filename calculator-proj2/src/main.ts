@@ -126,3 +126,4 @@ function performOperation(equation: string): {result: number | null, error: stri
     }
     return {result, error};
 };
+

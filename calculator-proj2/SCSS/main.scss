@@ -1,6 +1,15 @@
 @use "./variables" as *;
 @use "./calculator";
 
-body{
+[data-theme="wavy"]{
+    body{
     background-image:url("../assets/4945415.jpg")
 }
+}
+
+[data-theme="pink"]{
+    body{
+        background-image:url("../assets/daysi-pattern-design_25030-55737.avif")
+    }
+}
+

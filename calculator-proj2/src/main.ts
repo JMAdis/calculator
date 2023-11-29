@@ -1,4 +1,5 @@
 import '../SCSS/main.css';
+import confetti, {Options} from "canvas-confetti"
 
 // HTML SELECTOR - for screen & all buttons 
 const display = document.querySelector<HTMLDivElement>(".calculator__screen") 
@@ -54,8 +55,19 @@ percentage.addEventListener("click", () =>{
     display.innerHTML = currentEquation
 })
 
+// ADDING CONFETTI TO THE CALCULATOR
+// CREATING OBJECT
+const confettiOptions : Options ={
+    particleCount: Math.random() * 360,
+    spread: 359,
+    angle: 90,
+    colors: ["#de3163", "#ff69b4", "#ffb6c1"]
+}
+
+
 // EVENT LISTENER FOR THE = BUTTON 
 equals.addEventListener("click", () =>{
+    confetti(confettiOptions)
     const {result, error} = performOperation(currentEquation);
     if (result !== undefined && result !== null) {
         currentEquation = result.toString();

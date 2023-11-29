@@ -1,0 +1,12 @@
+@use "./variables" as *;
+
+#theme-button-container{
+}
+
+#theme-button{
+    display: block;
+    margin: auto;
+    background-color: $easter-egg-color;
+    color: white;
+    
+}

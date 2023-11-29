@@ -1,6 +1,6 @@
 @use "./variables" as *;
 
-h1{
+#heading{
     text-align: center;
     color: $display-color-black;
     font-family: $awesome-font;
@@ -85,7 +85,7 @@ h1{
 }
 
 @media screen and (min-width: $tablet-breakpoint) { 
-    h1{
+    #heading{
         font-size: 5rem;
         color: $white-color;
     }
@@ -107,7 +107,7 @@ h1{
 }
 
 @media screen and (min-width: $desktop-breakpoint) {
-    h1{
+    #heading{
         font-size: 7rem;
         color: $white-color;
     }

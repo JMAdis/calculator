@@ -11,6 +11,7 @@ const percentage = document.querySelector<HTMLButtonElement>("#percentage")
 const equals = document.querySelector<HTMLButtonElement>("#equals")
 const themeButton = document.querySelector<HTMLButtonElement>("#theme-button")
 const body = document.body;
+const 
 
 //ELEMENT VALIDATION
 if(!display || !clear || !del || !percentage || !equals || !themeButton){
@@ -77,18 +78,6 @@ equals.addEventListener("click", () =>{
     }
 });
 
-// EVENT LISTENER FOR THE THEME BUTTON/TOGGLE
-let wavyMode = true
-
-function changeTheme() {
-    if (wavyMode){
-        body.style.backgroundImage = 'url(../assets/daysi-pattern-design_25030-55737.avif)';
-    } else {
-        body.style.backgroundImage = 'url(../assets/4945415.jpg)'
-    }
-    
-}
-
 // performOperation FUNCTION & DEFINING THE OPERATORS & EQUATION
 function performOperation(equation: string): {result: number | null, error: string | null} {
     let result: number | null = null;
@@ -138,3 +127,18 @@ function performOperation(equation: string): {result: number | null, error: stri
     return {result, error};
 };
 
+// EVENT LISTENER FOR THE THEME BUTTON/TOGGLE
+let wavyMode = true;
+
+function changeTheme() {
+    if (wavyMode){
+        body.style.backgroundImage = 'url(../assets/daysi-pattern-design_25030-55737.avif)';
+    } else {
+        body.style.backgroundImage = 'url(../assets/4945415.jpg)'
+    }
+    wavyMode = !wavyMode;
+}
+
+themeButton.addEventListener("click", () =>{
+    changeTheme()
+})

@@ -1,4 +1,4 @@
-import '../SCSS/main.scss';
+import '../styles/main.scss';
 import confetti, {Options} from "canvas-confetti"
 
 // HTML SELECTOR - for screen & all buttons 
@@ -134,15 +134,15 @@ let wavyMode = true;
 // CHANGETHEME FUNCTION
 const changeTheme = () => {
     if (wavyMode){
-        body.style.backgroundImage = 'url(../assets/daysi-pattern-design_25030-55737.avif)';
-        heading.style.color = 'rgb(240,78,138)';
+        body.style.backgroundImage = "url(../assets/daisy-pattern.avif)";
+        heading.style.color = "rgb(240,78,138)";
         heading.innerHTML = "My Barbie® Calculator"
         themeButton.style.backgroundColor = 'rgb(240,78,138)';
     } else {
-        body.style.backgroundImage = 'url(../assets/4945415.jpg)'
-        heading.style.color = 'white';
+        body.style.backgroundImage = "url(../assets/wavy-pattern.jpg)";
+        heading.style.color = "white";
         heading.innerHTML = "My Calculator Project"
-        themeButton.style.backgroundColor = 'rgb(37,159,164)';
+        themeButton.style.backgroundColor = "rgb(37,159,164)";
     }
     wavyMode = !wavyMode;
 }

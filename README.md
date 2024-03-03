@@ -14,6 +14,8 @@ SCSS: Styling is done using SCSS to maintain modular and maintainable styles.
 Canvas Confetti: The confetti animation is powered by the Canvas Confetti library.
 
 ## Project Structure
-index.html: The primary HTML file acting as the starting point for the application.
-main.scss: The SCSS file containing styles for the calculator.
-app.ts: TypeScript file with logic for calculator operations, theme toggle, and confetti animation.
+<ul>
+<li> index.html: The primary HTML file acting as the starting point for the application.</li>
+<li> main.scss: The SCSS file containing styles for the calculator. </li>
+<li> app.ts: TypeScript file with logic for calculator operations, theme toggle, and confetti animation.</li>
+</ul>

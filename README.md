@@ -1,4 +1,4 @@
-# calculator-project2
+# Calculator Project
 
 Overview
 This project is a simple calculator web application built with TypeScript, HTML, and SCSS. It provides basic arithmetic operations, a theme toggle feature, and a fun confetti animation upon calculating results. The calculator is designed with a pretty and user-friendly interface.

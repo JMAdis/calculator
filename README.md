@@ -9,9 +9,11 @@ Theme Toggle: Switch between two themes with a click, providing a visually appea
 Confetti Animation: Enjoy a celebratory confetti animation when calculating results for a touch of fun.
 
 ## Technologies Used
-TypeScript: The calculator logic is written in TypeScript for a structured and type-safe codebase.
-SCSS: Styling is done using SCSS to maintain modular and maintainable styles.
-Canvas Confetti: The confetti animation is powered by the Canvas Confetti library.
+<ul>
+<li>TypeScript: The calculator logic is written in TypeScript for a structured and type-safe codebase.</li>
+<li>SCSS: Styling is done using SCSS to maintain modular and maintainable styles.</li>
+<li>Canvas Confetti: The confetti animation is powered by the Canvas Confetti library.</li>
+</ul>
 
 ## Project Structure
 <ul>
